@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" fill="none" role="img" aria-label="Greenvision Craft placeholder">
+  <rect width="800" height="800" fill="#F7F9F6"/>
+  <path d="M400 250c-78 26-134 92-134 172 0 52 22 96 58 124 30-56 76-100 132-124-52 44-84 106-92 176 62-14 112-56 136-116 14-34 20-70 18-106-36 6-72-4-102-28 30-38 8-88-16-118z" fill="#DCFCE7"/>
+  <path d="M400 250c-78 26-134 92-134 172 0 52 22 96 58 124 30-56 76-100 132-124-52 44-84 106-92 176 62-14 112-56 136-116 14-34 20-70 18-106-36 6-72-4-102-28 30-38 8-88-16-118z" stroke="#40916C" stroke-width="6" stroke-linejoin="round"/>
+  <text x="400" y="640" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="30" font-weight="600" fill="#4D6358">Greenvision Craft</text>
+</svg>

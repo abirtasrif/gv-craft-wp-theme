@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none" role="img" aria-label="Greenvision Craft emblem">
+  <rect width="48" height="48" rx="14" fill="#1b4332"/>
+  <path d="M14 34C14 22 24 14 34 14C34 26 24 34 14 34Z" fill="#52b788" fill-opacity="0.9"/>
+  <path d="M20 34C20 25 27 18 34 16" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="34" cy="14" r="3" fill="#d8f3dc"/>
+  <path d="M19 23C23 27 28 29 33 30" stroke="#d8f3dc" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2 2"/>
+</svg>
