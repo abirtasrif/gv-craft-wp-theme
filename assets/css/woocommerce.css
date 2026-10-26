@@ -133,7 +133,7 @@ Loaded on shop, product, cart, checkout and account screens.
 	flex-direction: column;
 	background: #fff;
 	border: 1px solid var(--gvc-border);
-	border-radius: var(--gvc-radius-md);
+	border-radius: var(--gvc-radius-lg);
 	overflow: hidden;
 	box-shadow: var(--gvc-shadow);
 	transition: box-shadow 0.3s ease, transform 0.3s ease;

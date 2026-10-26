@@ -53,7 +53,7 @@ if ( ! $gvc_cta2_url ) {
 }
 ?>
 <section class="gvc-hero">
-	<div class="gvc-container">
+	<div class="gvc-container gvc-container--full">
 		<div class="gvc-hero__grid">
 
 			<div class="gvc-hero__copy">

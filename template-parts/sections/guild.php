@@ -35,7 +35,7 @@ if ( gvc_woocommerce_active() ) {
 }
 ?>
 <section class="gvc-section" id="guilds">
-	<div class="gvc-container">
+	<div class="gvc-container gvc-container--full">
 		<div class="gvc-split gvc-split--5-7">
 
 			<div>

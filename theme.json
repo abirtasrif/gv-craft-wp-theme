@@ -55,8 +55,8 @@
 			"spacingScale": { "steps": 0 }
 		},
 		"layout": {
-			"contentSize": "760px",
-			"wideSize": "1240px"
+			"contentSize": "800px",
+			"wideSize": "1600px"
 		},
 		"border": {
 			"color": true,

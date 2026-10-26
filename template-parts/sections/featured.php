@@ -57,7 +57,7 @@ $gvc_chips    = get_terms(
 );
 ?>
 <section class="gvc-section gvc-section--white" id="featured">
-	<div class="gvc-container">
+	<div class="gvc-container gvc-container--full">
 
 		<div class="gvc-section-head gvc-section-head--split" style="border-bottom: 1px solid var(--gvc-border); padding-bottom: 1.5rem;">
 			<div>

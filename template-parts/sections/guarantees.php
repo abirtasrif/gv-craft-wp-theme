@@ -15,7 +15,7 @@ $gvc_guarantees = array(
 );
 ?>
 <section class="gvc-section gvc-section--tight gvc-section--tint" style="border-block: 1px solid var(--gvc-border);">
-	<div class="gvc-container">
+	<div class="gvc-container gvc-container--full">
 		<div class="gvc-grid gvc-grid--4" style="gap: 2rem;">
 			<?php foreach ( $gvc_guarantees as $gvc_guarantee ) : ?>
 				<div class="gvc-guarantee">

@@ -33,7 +33,7 @@ $gvc_icons = array(
 );
 ?>
 <section class="gvc-section gvc-section--cream" id="catalog">
-	<div class="gvc-container">
+	<div class="gvc-container gvc-container--full">
 
 		<?php
 		gvc_section_head(
@@ -78,7 +78,7 @@ $gvc_icons = array(
 				$gvc_count_products = (int) $gvc_term->count;
 				?>
 				<article class="gvc-cat-card">
-					<div class="gvc-media gvc-media--square">
+					<div class="gvc-media gvc-media--square gvc-media--zoom">
 						<?php if ( $gvc_image_id ) : ?>
 							<?php echo wp_get_attachment_image( $gvc_image_id, 'gvc-card', false, array( 'loading' => 'lazy', 'alt' => $gvc_term->name ) ); ?>
 						<?php else : ?>

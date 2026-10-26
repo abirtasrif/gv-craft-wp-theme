@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) || exit;
 	<?php gvc_announcement_bar(); ?>
 
 	<header class="gvc-site-header" id="gvc-header">
-		<div class="gvc-container gvc-header__inner">
+		<div class="gvc-container gvc-container--full gvc-header__inner">
 
 			<div class="gvc-header__brand">
 				<a class="gvc-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">

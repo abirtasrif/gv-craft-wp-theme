@@ -205,11 +205,12 @@ class GV_Craft_Setup {
 				'name'  => __( 'GV Craft Primary', 'gv-craft' ),
 				'items' => array(
 					array( 'title' => __( 'Mats & Rugs', 'gv-craft' ), 'url' => $shop_url . '?product_cat=mats-rugs' ),
-					array( 'title' => __( 'Ceramics', 'gv-craft' ), 'url' => $shop_url . '?product_cat=ceramics' ),
 					array( 'title' => __( 'Jute & Fibers', 'gv-craft' ), 'url' => $shop_url . '?product_cat=jute-fibers' ),
 					array( 'title' => __( 'Woodcraft', 'gv-craft' ), 'url' => $shop_url . '?product_cat=woodcraft' ),
 					array( 'title' => __( 'Sustainable Tableware', 'gv-craft' ), 'url' => $shop_url . '?product_cat=sustainable-tableware' ),
 					array( 'title' => __( 'Impact Ledger', 'gv-craft' ), 'url' => home_url( '/impact-ledger/' ) ),
+					array( 'title' => __( 'About Us', 'gv-craft' ), 'url' => home_url( '/about-us/' ) ),
+					array( 'title' => __( 'Terms & Conditions', 'gv-craft' ), 'url' => home_url( '/terms-conditions/' ) ),
 				),
 			),
 			'footer'  => array(

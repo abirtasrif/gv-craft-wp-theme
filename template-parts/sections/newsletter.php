@@ -7,8 +7,8 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<section class="gvc-section" id="newsletter">
-	<div class="gvc-container">
+<section class="gvc-section gvc-section--mint" id="newsletter">
+	<div class="gvc-container gvc-container--full">
 		<div class="gvc-newsletter">
 			<?php gvc_icon( 'mail', 'gvc-icon--xl' ); ?>
 

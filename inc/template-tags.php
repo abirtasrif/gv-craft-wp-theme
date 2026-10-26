@@ -279,9 +279,10 @@ function gvc_product_card( $product, $args = array() ) {
  */
 function gvc_mobile_nav() {
 	$shop_url = gvc_woocommerce_active() ? wc_get_page_permalink( 'shop' ) : home_url( '/' );
-	$impact   = gvc_option( 'announce_link_url' ) ? gvc_option( 'announce_link_url' ) : home_url( '/impact-ledger/' );
 	$count    = gvc_cart_count();
 	$is_shop  = function_exists( 'is_shop' ) && ( is_shop() || is_product_category() || is_product_tag() );
+	$categories_url = home_url( '/' ) . '#catalog';
+	$account_url = gvc_woocommerce_active() ? wc_get_account_endpoint_url( 'dashboard' ) : home_url( '/my-account/' );
 	?>
 	<nav class="gvc-mobile-nav" aria-label="<?php esc_attr_e( 'Primary mobile navigation', 'gv-craft' ); ?>">
 		<a class="gvc-mobile-nav__item <?php echo is_front_page() ? 'is-active' : ''; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -290,15 +291,15 @@ function gvc_mobile_nav() {
 		</a>
 		<a class="gvc-mobile-nav__item <?php echo $is_shop ? 'is-active' : ''; ?>" href="<?php echo esc_url( $shop_url ); ?>">
 			<?php gvc_icon( 'grid_view' ); ?>
+			<span><?php esc_html_e( 'Shop', 'gv-craft' ); ?></span>
+		</a>
+		<a class="gvc-mobile-nav__item" href="<?php echo esc_url( $categories_url ); ?>">
+			<?php gvc_icon( 'spa' ); ?>
 			<span><?php esc_html_e( 'Categories', 'gv-craft' ); ?></span>
 		</a>
-		<a class="gvc-mobile-nav__item" href="<?php echo esc_url( $impact ); ?>">
-			<?php gvc_icon( 'nest_eco_leaf' ); ?>
-			<span><?php esc_html_e( 'Impact', 'gv-craft' ); ?></span>
-		</a>
-		<a class="gvc-mobile-nav__item" href="<?php echo esc_url( home_url( '/wishlist/' ) ); ?>">
-			<?php gvc_icon( 'favorite' ); ?>
-			<span><?php esc_html_e( 'Wishlist', 'gv-craft' ); ?></span>
+		<a class="gvc-mobile-nav__item" href="<?php echo esc_url( $account_url ); ?>">
+			<?php gvc_icon( 'person' ); ?>
+			<span><?php esc_html_e( 'My Account', 'gv-craft' ); ?></span>
 		</a>
 		<a class="gvc-mobile-nav__item" href="<?php echo esc_url( gvc_woocommerce_active() ? wc_get_cart_url() : home_url( '/' ) ); ?>">
 			<span class="gvc-icon" aria-hidden="true">shopping_cart</span>

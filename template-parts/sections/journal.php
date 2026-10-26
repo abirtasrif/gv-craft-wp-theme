@@ -23,7 +23,7 @@ $gvc_blog_id = (int) get_option( 'page_for_posts' );
 $gvc_blog_url = $gvc_blog_id ? get_permalink( $gvc_blog_id ) : home_url( '/' );
 ?>
 <section class="gvc-section gvc-section--white" style="border-top: 1px solid var(--gvc-border);">
-	<div class="gvc-container">
+	<div class="gvc-container gvc-container--full">
 
 		<?php
 		gvc_section_head(

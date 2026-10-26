@@ -15,7 +15,7 @@ $gvc_metrics = array(
 );
 ?>
 <section class="gvc-section gvc-section--forest gvc-impact" id="impact">
-	<div class="gvc-container gvc-impact__grid">
+	<div class="gvc-container gvc-container--full gvc-impact__grid">
 
 		<div style="max-width: 46rem;">
 			<span class="gvc-badge" style="background: rgba(64, 145, 108, 0.3); color: var(--gvc-mint);">

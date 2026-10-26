@@ -68,10 +68,6 @@ function gvc_default_menu( $args = array() ) {
 			'url'   => add_query_arg( 'product_cat', 'mats-rugs', $shop_url ),
 		),
 		array(
-			'title' => __( 'Ceramics', 'gv-craft' ),
-			'url'   => add_query_arg( 'product_cat', 'ceramics', $shop_url ),
-		),
-		array(
 			'title' => __( 'Jute & Fibers', 'gv-craft' ),
 			'url'   => add_query_arg( 'product_cat', 'jute-fibers', $shop_url ),
 		),
@@ -87,6 +83,14 @@ function gvc_default_menu( $args = array() ) {
 			'title' => __( 'Impact Ledger', 'gv-craft' ),
 			'url'   => home_url( '/impact-ledger/' ),
 			'icon'  => 'verified',
+		),
+		array(
+			'title' => __( 'About Us', 'gv-craft' ),
+			'url'   => home_url( '/about-us/' ),
+		),
+		array(
+			'title' => __( 'Terms & Conditions', 'gv-craft' ),
+			'url'   => home_url( '/terms-conditions/' ),
 		),
 	);
 
@@ -177,3 +181,28 @@ function gvc_drawer_navigation() {
 	</div>
 	<?php
 }
+
+/**
+ * Remove unwanted entries from the primary navigation menu.
+ *
+ * @param array $items Menu items.
+ * @param array $args Menu query args.
+ * @return array
+ */
+function gvc_filter_primary_menu_items( $items, $args ) {
+	if ( isset( $args['theme_location'] ) && 'primary' === $args['theme_location'] ) {
+		return array_values(
+			array_filter(
+				$items,
+				function ( $item ) {
+					$slug = isset( $item->slug ) ? $item->slug : '';
+
+					return 'ceramics' !== $slug;
+				}
+			)
+		);
+	}
+
+	return $items;
+}
+add_filter( 'wp_nav_menu_objects', 'gvc_filter_primary_menu_items', 10, 2 );

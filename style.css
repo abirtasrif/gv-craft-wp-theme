@@ -54,7 +54,7 @@ WC tested up to: 9.3
 	--gvc-sage: #74c69d;
 	--gvc-mint: #dcfce7;
 	--gvc-mint-soft: #e1f9ec;
-	--gvc-container: #dcf3e7;
+	--gvc-mint-deep: #dcf3e7;
 	--gvc-container-high: #d6eee1;
 	--gvc-container-highest: #d0e8dc;
 	--gvc-surface-variant: #d0e8dc;
@@ -81,11 +81,16 @@ WC tested up to: 9.3
 	--gvc-radius-lg: 1rem;
 	--gvc-radius-full: 9999px;
 
-	/* Shadows */
-	--gvc-shadow: 0 2px 8px -2px rgba(11, 59, 36, 0.05), 0 1px 3px 0 rgba(11, 59, 36, 0.03);
-	--gvc-shadow-hover: 0 12px 24px -6px rgba(11, 59, 36, 0.08), 0 4px 8px -2px rgba(11, 59, 36, 0.04);
-	--gvc-shadow-float: 0 20px 32px -8px rgba(11, 59, 36, 0.12);
-	--gvc-shadow-deep: 0 20px 40px -12px rgba(11, 59, 36, 0.35);
+	/* Shadows — soft layered depth for modern surfaces */
+	--gvc-shadow: 0 1px 2px rgba(11, 59, 36, 0.05), 0 12px 32px -16px rgba(11, 59, 36, 0.12);
+	--gvc-shadow-hover: 0 2px 6px rgba(11, 59, 36, 0.06), 0 24px 48px -20px rgba(11, 59, 36, 0.18);
+	--gvc-shadow-float: 0 28px 56px -20px rgba(11, 59, 36, 0.22);
+	--gvc-shadow-deep: 0 24px 48px -16px rgba(11, 59, 36, 0.4);
+
+	/* Ambient organic glows (hero / mint bands) */
+	--gvc-glow-mint: rgba(116, 198, 157, 0.38);
+	--gvc-glow-sage: rgba(64, 145, 108, 0.2);
+	--gvc-glow-deep: rgba(1, 45, 29, 0.55);
 
 	/* Layout */
 	--gvc-container: 1280px;
@@ -233,6 +238,7 @@ h1 {
 
 h2 {
 	font-size: clamp(24px, 3vw, 32px);
+	text-wrap: balance;
 }
 
 h3 {
@@ -406,8 +412,14 @@ p:last-child {
 	max-width: 1440px;
 }
 
+/* Full-bleed container: content uses the full width of the screen. */
+.gvc-container--full {
+	max-width: none;
+}
+
 .gvc-section {
 	padding-block: 4rem;
+	scroll-margin-top: calc(var(--gvc-header-h) + 1rem);
 }
 
 .gvc-section--tight {
@@ -420,6 +432,10 @@ p:last-child {
 
 .gvc-section--tint {
 	background: var(--gvc-cream-dark);
+}
+
+.gvc-section--mint {
+	background: linear-gradient(180deg, var(--gvc-cream) 0%, var(--gvc-mint-soft) 100%);
 }
 
 .gvc-section--white {
@@ -532,6 +548,7 @@ p:last-child {
 	background: var(--gvc-forest);
 	color: #fff;
 	box-shadow: var(--gvc-shadow-hover);
+	transform: translateY(-2px);
 }
 
 .gvc-btn--secondary {
@@ -977,6 +994,7 @@ label {
    9. Header / navigation
    -------------------------------------------------------------------------- */
 .gvc-announce {
+	display: none;
 	background: var(--gvc-forest);
 	color: var(--gvc-cream);
 	border-bottom: 1px solid rgba(27, 67, 50, 0.6);
@@ -1124,7 +1142,7 @@ label {
 	font-weight: 600;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
 	.gvc-nav {
 		display: flex;
 	}
@@ -1282,7 +1300,7 @@ label {
 	display: inline-flex;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
 	.gvc-header__mobile-toggle {
 		display: none;
 	}
@@ -1377,14 +1395,24 @@ label {
 .gvc-hero {
 	position: relative;
 	overflow: hidden;
-	padding-block: 2rem 4rem;
+	padding-block: 3rem 4.5rem;
 	border-bottom: 1px solid var(--gvc-border);
-	background: var(--gvc-cream);
+	background: linear-gradient(180deg, var(--gvc-cream) 0%, var(--gvc-cream-dark) 100%);
+}
+
+.gvc-hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(58% 46% at 88% 4%, var(--gvc-glow-mint) 0%, rgba(116, 198, 157, 0) 70%),
+		radial-gradient(46% 42% at 2% 96%, var(--gvc-glow-sage) 0%, rgba(64, 145, 108, 0) 72%);
+	pointer-events: none;
 }
 
 @media (min-width: 1024px) {
 	.gvc-hero {
-		padding-block: 2.5rem 5rem;
+		padding-block: 4rem 6rem;
 	}
 }
 
@@ -1392,6 +1420,7 @@ label {
 	display: grid;
 	gap: 3rem;
 	align-items: center;
+	animation: gvc-rise 0.9s cubic-bezier(0.2, 0.65, 0.3, 1) both;
 }
 
 @media (min-width: 1024px) {
@@ -1401,16 +1430,20 @@ label {
 	}
 
 	.gvc-hero__copy {
-		grid-column: span 6;
+		grid-column: span 5;
 	}
 
 	.gvc-hero__showcase {
-		grid-column: span 6;
+		grid-column: span 7;
 	}
 }
 
 .gvc-hero__title {
-	margin: 1rem 0;
+	margin: 1.25rem 0;
+	font-size: clamp(38px, 5.4vw, 66px);
+	line-height: 1.08;
+	letter-spacing: -0.025em;
+	text-wrap: balance;
 }
 
 .gvc-hero__actions {
@@ -1424,7 +1457,7 @@ label {
 .gvc-hero__stats {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 1.5rem;
+	gap: 1.25rem;
 	padding-top: 2rem;
 	margin-top: 2rem;
 	border-top: 1px solid var(--gvc-border);
@@ -1442,6 +1475,13 @@ label {
 	margin: 0;
 	font-size: 12px;
 	color: var(--gvc-text-muted);
+}
+
+@media (max-width: 639px) {
+	.gvc-hero__stats {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
 }
 
 .gvc-showcase {
@@ -1597,7 +1637,7 @@ label {
 	flex-direction: column;
 	background: #fff;
 	border: 1px solid var(--gvc-border);
-	border-radius: var(--gvc-radius-md);
+	border-radius: var(--gvc-radius-lg);
 	overflow: hidden;
 	box-shadow: var(--gvc-shadow);
 	transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -1716,7 +1756,7 @@ label {
 	left: -8rem;
 	width: 24rem;
 	height: 24rem;
-	background: rgba(27, 67, 50, 0.5);
+	background: var(--gvc-glow-deep);
 }
 
 .gvc-impact__grid {
@@ -1807,16 +1847,25 @@ label {
 	flex-direction: column;
 	gap: 0.75rem;
 	margin-top: 2rem;
+	padding: 1.5rem;
+	background: #fff;
+	border: 1px solid var(--gvc-border);
+	border-radius: var(--gvc-radius-lg);
+	box-shadow: var(--gvc-shadow);
 }
 
 @media (min-width: 640px) {
 	.gvc-newsletter__form {
 		flex-direction: row;
+		align-items: center;
+		text-align: left;
 	}
 }
 
 .gvc-newsletter__form input {
 	flex: 1;
+	height: 48px;
+	border-radius: var(--gvc-radius);
 }
 
 /* --------------------------------------------------------------------------
@@ -1827,7 +1876,7 @@ label {
 	flex-direction: column;
 	background: #fff;
 	border: 1px solid var(--gvc-border);
-	border-radius: var(--gvc-radius-md);
+	border-radius: var(--gvc-radius-lg);
 	overflow: hidden;
 	box-shadow: var(--gvc-shadow);
 	height: 100%;
@@ -2178,10 +2227,18 @@ label {
 	}
 }
 
-.gvc-footer__badges {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 1.5rem;
+@media (max-width: 767px) {
+	.gvc-footer__bottom {
+		padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+	}
+}
+
+.gvc-footer__credit {
+	margin: 0;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	color: var(--gvc-surface-variant);
 }
 
 .gvc-socials {
@@ -2305,7 +2362,7 @@ label {
 	box-shadow: 0 -4px 16px rgba(11, 59, 36, 0.06);
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
 	.gvc-mobile-nav {
 		display: none;
 	}
@@ -2474,6 +2531,17 @@ label {
 	}
 	50% {
 		transform: translateY(-6px);
+	}
+}
+
+@keyframes gvc-rise {
+	from {
+		opacity: 0;
+		transform: translateY(18px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
 
