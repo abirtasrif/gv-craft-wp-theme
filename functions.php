@@ -137,8 +137,8 @@ if ( ! function_exists( 'gvc_scripts' ) ) {
 
 		$gvc_localize = array(
 			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-			'wcAjax'  => gvc_woocommerce_active() ? WC_AJAX::get_endpoint( 'add_to_cart' ) : '',
-			'cartUrl' => gvc_woocommerce_active() ? wc_get_cart_url() : home_url( '/' ),
+			'wcAjax'  => ( gvc_woocommerce_active() && class_exists( 'WC_AJAX' ) ) ? WC_AJAX::get_endpoint( 'add_to_cart' ) : '',
+			'cartUrl' => ( gvc_woocommerce_active() && function_exists( 'wc_get_cart_url' ) ) ? wc_get_cart_url() : home_url( '/' ),
 			'nonce'   => wp_create_nonce( 'gvc_nonce' ),
 			'i18n'    => array(
 				'added'    => __( 'Added to your bag', 'gv-craft' ),
@@ -150,7 +150,7 @@ if ( ! function_exists( 'gvc_scripts' ) ) {
 		);
 
 		// Gallery thumbnails on the single product page.
-		if ( is_singular( 'product' ) ) {
+		if ( is_singular( 'product' ) && function_exists( 'wc_get_product' ) ) {
 			$gvc_product = wc_get_product( get_the_ID() );
 
 			if ( $gvc_product ) {

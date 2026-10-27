@@ -103,8 +103,8 @@ function gvc_breadcrumbs() {
 	if ( function_exists( 'is_shop' ) && is_shop() && gvc_woocommerce_active() ) {
 		$items = array(
 			'<a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html__( 'Home', 'gv-craft' ) . '</a>',
-			'<a href="' . esc_url( wc_get_page_permalink( 'shop' ) ) . '">' . esc_html__( 'Shop', 'gv-craft' ) . '</a>',
-			'<span>' . esc_html( woocommerce_page_title( false ) ) . '</span>',
+			'<a href="' . esc_url( function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/shop/' ) ) . '">' . esc_html__( 'Shop', 'gv-craft' ) . '</a>',
+			'<span>' . esc_html( function_exists( 'woocommerce_page_title' ) ? woocommerce_page_title( false ) : '' ) . '</span>',
 		);
 	}
 
@@ -278,11 +278,11 @@ function gvc_product_card( $product, $args = array() ) {
  * Render the mobile bottom navigation.
  */
 function gvc_mobile_nav() {
-	$shop_url = gvc_woocommerce_active() ? wc_get_page_permalink( 'shop' ) : home_url( '/' );
+	$shop_url = ( gvc_woocommerce_active() && function_exists( 'wc_get_page_permalink' ) ) ? wc_get_page_permalink( 'shop' ) : home_url( '/' );
 	$count    = gvc_cart_count();
-	$is_shop  = function_exists( 'is_shop' ) && ( is_shop() || is_product_category() || is_product_tag() );
+	$is_shop  = function_exists( 'is_shop' ) && ( is_shop() || ( function_exists( 'is_product_category' ) && is_product_category() ) || ( function_exists( 'is_product_tag' ) && is_product_tag() ) );
 	$categories_url = home_url( '/' ) . '#catalog';
-	$account_url = gvc_woocommerce_active() ? wc_get_account_endpoint_url( 'dashboard' ) : home_url( '/my-account/' );
+	$account_url = ( gvc_woocommerce_active() && function_exists( 'wc_get_account_endpoint_url' ) ) ? wc_get_account_endpoint_url( 'dashboard' ) : home_url( '/my-account/' );
 	?>
 	<nav class="gvc-mobile-nav" aria-label="<?php esc_attr_e( 'Primary mobile navigation', 'gv-craft' ); ?>">
 		<a class="gvc-mobile-nav__item <?php echo is_front_page() ? 'is-active' : ''; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -301,7 +301,7 @@ function gvc_mobile_nav() {
 			<?php gvc_icon( 'person' ); ?>
 			<span><?php esc_html_e( 'My Account', 'gv-craft' ); ?></span>
 		</a>
-		<a class="gvc-mobile-nav__item" href="<?php echo esc_url( gvc_woocommerce_active() ? wc_get_cart_url() : home_url( '/' ) ); ?>">
+		<a class="gvc-mobile-nav__item" href="<?php echo esc_url( ( gvc_woocommerce_active() && function_exists( 'wc_get_cart_url' ) ) ? wc_get_cart_url() : home_url( '/' ) ); ?>">
 			<span class="gvc-icon" aria-hidden="true">shopping_cart</span>
 			<?php if ( $count ) : ?>
 				<span class="gvc-mobile-nav__badge"><?php echo esc_html( $count ); ?></span>

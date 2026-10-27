@@ -185,17 +185,33 @@ function gvc_drawer_navigation() {
 /**
  * Remove unwanted entries from the primary navigation menu.
  *
- * @param array $items Menu items.
- * @param array $args Menu query args.
+ * @param array        $items Menu items.
+ * @param stdClass|array $args Menu query args.
  * @return array
  */
 function gvc_filter_primary_menu_items( $items, $args ) {
-	if ( isset( $args['theme_location'] ) && 'primary' === $args['theme_location'] ) {
+	$theme_location = '';
+
+	if ( is_object( $args ) && isset( $args->theme_location ) ) {
+		$theme_location = $args->theme_location;
+	} elseif ( is_array( $args ) && isset( $args['theme_location'] ) ) {
+		$theme_location = $args['theme_location'];
+	}
+
+	if ( 'primary' === $theme_location ) {
 		return array_values(
 			array_filter(
 				$items,
 				function ( $item ) {
-					$slug = isset( $item->slug ) ? $item->slug : '';
+					$slug = '';
+
+					if ( is_object( $item ) ) {
+						if ( ! empty( $item->slug ) ) {
+							$slug = $item->slug;
+						} elseif ( ! empty( $item->post_name ) ) {
+							$slug = $item->post_name;
+						}
+					}
 
 					return 'ceramics' !== $slug;
 				}

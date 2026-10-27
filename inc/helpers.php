@@ -282,15 +282,11 @@ function gvc_is_woocommerce_page() {
  * @return int
  */
 function gvc_cart_count() {
-	if ( ! gvc_woocommerce_active() ) {
+	if ( ! gvc_woocommerce_active() || ! function_exists( 'WC' ) || ! WC() || ! WC()->cart ) {
 		return 0;
 	}
 
-	if ( WC()->cart ) {
-		return (int) WC()->cart->get_cart_contents_count();
-	}
-
-	return 0;
+	return (int) WC()->cart->get_cart_contents_count();
 }
 
 /**
@@ -299,7 +295,7 @@ function gvc_cart_count() {
  * @return string
  */
 function gvc_cart_total() {
-	if ( ! gvc_woocommerce_active() || ! WC()->cart ) {
+	if ( ! gvc_woocommerce_active() || ! function_exists( 'WC' ) || ! WC() || ! WC()->cart ) {
 		return '';
 	}
 
@@ -324,11 +320,11 @@ function gvc_kses( $html ) {
  * @return string
  */
 function gvc_product_meta( $product, $key, $default = '' ) {
-	if ( is_numeric( $product ) ) {
+	if ( is_numeric( $product ) && function_exists( 'wc_get_product' ) ) {
 		$product = wc_get_product( $product );
 	}
 
-	if ( ! $product ) {
+	if ( ! $product || ! is_object( $product ) || ! method_exists( $product, 'get_meta' ) ) {
 		return $default;
 	}
 
