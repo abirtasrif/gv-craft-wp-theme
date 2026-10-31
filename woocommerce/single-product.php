@@ -37,7 +37,7 @@ while ( have_posts() ) :
 	?>
 
 	<main id="gvc-main" class="gvc-main">
-		<div class="gvc-container">
+		<div class="gvc-container gvc-container--commerce">
 
 			<div style="padding-top: 0.5rem;">
 				<?php gvc_breadcrumbs(); ?>

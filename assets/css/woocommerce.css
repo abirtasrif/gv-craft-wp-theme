@@ -6,6 +6,11 @@ Loaded on shop, product, cart, checkout and account screens.
 /* --------------------------------------------------------------------------
    Layout wrappers
    -------------------------------------------------------------------------- */
+.gvc-container--commerce {
+	max-width: 1760px;
+	padding-inline: clamp(1.25rem, 3vw, 3rem);
+}
+
 .gvc-shop-layout {
 	display: grid;
 	gap: 2rem;
@@ -1819,4 +1824,3 @@ Loaded on shop, product, cart, checkout and account screens.
 .woocommerce-account .woocommerce-MyAccount-content .woocommerce-button {
 	margin-top: 1rem;
 }
-
