@@ -8,26 +8,25 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 <div class="gvc-entry" style="max-width: 52rem;">
-	<p class="gvc-lede"><?php esc_html_e( 'We collect the minimum we need to send you a woven rug, and we never sell your data. This policy explains exactly what happens to the information you share with Greenvision Craft.', 'gv-craft' ); ?></p>
+	<p class="gvc-lede"><?php esc_html_e( 'This policy explains how Green Vision Craft handles personal information when you browse the store, place an order, create an account, contact us or subscribe to updates.', 'gv-craft' ); ?></p>
 
-	<h2><?php esc_html_e( 'What we collect', 'gv-craft' ); ?></h2>
-	<p><?php esc_html_e( 'When you place an order we collect your name, delivery address, billing address, email address and phone number so the guild can pack and post your piece. If you create an account we also store your order history and saved addresses.', 'gv-craft' ); ?></p>
-	<p><?php esc_html_e( 'If you join the journal we store your email address only, and only until you unsubscribe.', 'gv-craft' ); ?></p>
+	<h2><?php esc_html_e( 'Information you provide', 'gv-craft' ); ?></h2>
+	<p><?php esc_html_e( 'Depending on how you use the store, this may include your name, billing and delivery address, email address, phone number, account details, order information and messages you send to us. Newsletter subscribers provide an email address.', 'gv-craft' ); ?></p>
 
-	<h2><?php esc_html_e( 'What we never collect', 'gv-craft' ); ?></h2>
-	<p><?php esc_html_e( 'We do not build advertising profiles, we do not sell or rent customer lists, and we do not share your details with third-party marketing networks.', 'gv-craft' ); ?></p>
+	<h2><?php esc_html_e( 'How we use information', 'gv-craft' ); ?></h2>
+	<p><?php esc_html_e( 'We use information to process and deliver orders, provide customer support, manage accounts and subscriptions, respond to inquiries, and operate and protect the website.', 'gv-craft' ); ?></p>
 
-	<h2><?php esc_html_e( 'Who processes our payments', 'gv-craft' ); ?></h2>
-	<p><?php esc_html_e( 'Payments are handled by our payment gateway. Card details are encrypted end to end and never touch our servers. We receive only the last four digits, the card brand and the transaction total so we can reconcile refunds.', 'gv-craft' ); ?></p>
+	<h2><?php esc_html_e( 'Service providers and payments', 'gv-craft' ); ?></h2>
+	<p><?php esc_html_e( 'Information may be shared with service providers when needed to operate the store, such as payment, hosting, email and delivery providers. Payment processing is handled by the provider selected at checkout; its own privacy terms also apply. The information handled can depend on the services enabled on this website.', 'gv-craft' ); ?></p>
 
 	<h2><?php esc_html_e( 'Cookies', 'gv-craft' ); ?></h2>
-	<p><?php esc_html_e( 'We use a small number of cookies: one to keep your bag alive between visits, one to remember your language and currency, and one to record consent for optional analytics. You can clear them at any time from your browser settings.', 'gv-craft' ); ?></p>
+	<p><?php esc_html_e( 'The store may use cookies and similar technologies for essential functions such as keeping an account session or shopping cart working. Optional features or third-party services may use additional cookies depending on the site configuration. You can manage cookies through your browser settings and any consent controls shown on the site.', 'gv-craft' ); ?></p>
 
-	<h2><?php esc_html_e( 'Your rights', 'gv-craft' ); ?></h2>
-	<p><?php esc_html_e( 'You can request a copy of the data we hold, ask us to correct it, or ask us to delete it entirely once your order has been delivered and the return window has closed. Write to us and we will action it within seven working days.', 'gv-craft' ); ?></p>
+	<h2><?php esc_html_e( 'Data retention and your requests', 'gv-craft' ); ?></h2>
+	<p><?php esc_html_e( 'We retain information for as long as it is needed for the purposes described above and to meet applicable legal, accounting and operational requirements. You can contact us to request access to or correction or deletion of your personal information. We will review requests in accordance with applicable law and any record-keeping obligations.', 'gv-craft' ); ?></p>
 
-	<h2><?php esc_html_e( 'Data retention', 'gv-craft' ); ?></h2>
-	<p><?php esc_html_e( 'Order records are kept for seven years to meet tax and accounting obligations. Everything else is deleted as soon as it is no longer needed.', 'gv-craft' ); ?></p>
+	<h2><?php esc_html_e( 'Updates to this policy', 'gv-craft' ); ?></h2>
+	<p><?php esc_html_e( 'We may update this policy when our store practices or legal requirements change. The latest version will be published on this page.', 'gv-craft' ); ?></p>
 
 	<h2><?php esc_html_e( 'Contact', 'gv-craft' ); ?></h2>
 	<p><?php esc_html_e( 'Questions about privacy can be sent to contact@resilientgreenvision.com or by post to 41/4 Moneshwar Road, Zigatola, Dhanmondi, Dhaka-1209.', 'gv-craft' ); ?></p>

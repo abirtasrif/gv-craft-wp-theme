@@ -28,9 +28,8 @@ $gvc_tags        = get_terms(
 ?>
 
 <main id="gvc-main" class="gvc-main">
-	<div class="gvc-container">
-
-		<div class="gvc-page-hero">
+	<div class="gvc-page-hero">
+		<div class="gvc-container gvc-container--wide">
 			<?php gvc_breadcrumbs(); ?>
 
 			<div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1rem;">
@@ -67,7 +66,9 @@ $gvc_tags        = get_terms(
 				</p>
 			<?php endif; ?>
 		</div>
+	</div>
 
+	<div class="gvc-container gvc-container--wide">
 		<div class="gvc-section" style="padding-top: 2rem;">
 			<div class="gvc-shop-layout">
 
@@ -207,7 +208,6 @@ $gvc_tags        = get_terms(
 				</div>
 			</div>
 		</div>
-
 	</div>
 </main>
 

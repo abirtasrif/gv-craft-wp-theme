@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
 		<h2 style="margin: 0.75rem 0;"><?php esc_html_e( 'Pioneering Sustainability', 'gv-craft' ); ?></h2>
 
 		<p class="gvc-body-lg gvc-muted">
-			<?php esc_html_e( 'Innovations is committed to developing cutting-edge eco-friendly technologies and practices that reduce carbon footprints, conserve natural resources, and create a healthier planet for future generations.', 'gv-craft' ); ?>
+			<?php esc_html_e( 'Green Vision Craft connects shoppers with handcrafted home goods made by artisan communities in Bangladesh, including jute and fiber pieces, ceramics, woodcraft and sustainable tableware.', 'gv-craft' ); ?>
 		</p>
 
 		<p class="gvc-body-lg gvc-muted">
@@ -47,11 +47,11 @@ defined( 'ABSPATH' ) || exit;
 	</div>
 
 	<div>
-		<div class="gvc-media gvc-media--portrait gvc-card" style="border-radius: var(--gvc-radius-md); overflow: hidden;">
+		<div class="gvc-media gvc-media--wide gvc-card gvc-about__image" style="border-radius: var(--gvc-radius-md);">
 			<img src="<?php echo esc_url( GVC_URI . 'assets/img/demo/celadon-ceramic-planter.jpg' ); ?>" alt="<?php esc_attr_e( 'Handcrafted artisan ceramics', 'gv-craft' ); ?>" loading="lazy" />
 		</div>
 
-		<div class="gvc-grid gvc-grid--3" style="margin-top: 1.5rem; gap: 1rem;">
+		<div class="gvc-grid gvc-about__stats" style="margin-top: 1.5rem; gap: 1rem;">
 			<div class="gvc-surface" style="padding: 1rem; text-align: center;">
 				<strong style="display: block; font-family: var(--gvc-font-head); font-size: 22px; color: var(--gvc-forest);">4,200+</strong>
 				<span class="gvc-body-sm gvc-muted"><?php esc_html_e( 'Mangroves planted', 'gv-craft' ); ?></span>
@@ -117,4 +117,59 @@ defined( 'ABSPATH' ) || exit;
 			</p>
 		</div>
 	</div>
+
+	<section class="gvc-about__resources" aria-labelledby="gvc-about-resources-title">
+		<div class="gvc-section-head" style="margin-top: 4rem;">
+			<div>
+				<div class="gvc-eyebrow gvc-eyebrow--upper"><?php esc_html_e( 'Learn more', 'gv-craft' ); ?></div>
+				<h2 id="gvc-about-resources-title"><?php esc_html_e( 'Our impact and policies', 'gv-craft' ); ?></h2>
+				<p class="gvc-muted"><?php esc_html_e( 'Find out how we work with artisan communities and how our store operates.', 'gv-craft' ); ?></p>
+			</div>
+		</div>
+
+		<div class="gvc-grid gvc-about__resource-grid">
+			<a class="gvc-card gvc-card--hover gvc-about__resource" href="<?php echo esc_url( home_url( '/impact-ledger/' ) ); ?>">
+				<span class="gvc-eyebrow"><?php gvc_icon( 'monitoring', 'gvc-icon--sm' ); ?> <?php esc_html_e( 'Transparency', 'gv-craft' ); ?></span>
+				<strong class="gvc-title-md"><?php esc_html_e( 'Impact Ledger', 'gv-craft' ); ?></strong>
+				<span class="gvc-body-sm gvc-muted"><?php esc_html_e( 'Read about the environmental and community commitments behind each order.', 'gv-craft' ); ?></span>
+				<span class="gvc-about__resource-link"><?php esc_html_e( 'View the ledger', 'gv-craft' ); ?> <span aria-hidden="true">&rarr;</span></span>
+			</a>
+
+			<a class="gvc-card gvc-card--hover gvc-about__resource" href="<?php echo esc_url( home_url( '/terms-conditions/' ) ); ?>">
+				<span class="gvc-eyebrow"><?php gvc_icon( 'description', 'gvc-icon--sm' ); ?> <?php esc_html_e( 'Shopping information', 'gv-craft' ); ?></span>
+				<strong class="gvc-title-md"><?php esc_html_e( 'Terms & Conditions', 'gv-craft' ); ?></strong>
+				<span class="gvc-body-sm gvc-muted"><?php esc_html_e( 'Review the terms that apply to orders, delivery, returns and use of this website.', 'gv-craft' ); ?></span>
+				<span class="gvc-about__resource-link"><?php esc_html_e( 'Read the terms', 'gv-craft' ); ?> <span aria-hidden="true">&rarr;</span></span>
+			</a>
+
+			<a class="gvc-card gvc-card--hover gvc-about__resource" href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">
+				<span class="gvc-eyebrow"><?php gvc_icon( 'shield', 'gvc-icon--sm' ); ?> <?php esc_html_e( 'Your information', 'gv-craft' ); ?></span>
+				<strong class="gvc-title-md"><?php esc_html_e( 'Privacy Policy', 'gv-craft' ); ?></strong>
+				<span class="gvc-body-sm gvc-muted"><?php esc_html_e( 'Learn what information the store uses and how to contact us with a privacy request.', 'gv-craft' ); ?></span>
+				<span class="gvc-about__resource-link"><?php esc_html_e( 'Read the policy', 'gv-craft' ); ?> <span aria-hidden="true">&rarr;</span></span>
+			</a>
+		</div>
+	</section>
+
+	<section class="gvc-about__faq gvc-faq" aria-labelledby="gvc-about-faq-title">
+		<div class="gvc-section-head" style="margin-top: 4rem;">
+			<div>
+				<div class="gvc-eyebrow gvc-eyebrow--upper"><?php esc_html_e( 'Craft guide', 'gv-craft' ); ?></div>
+				<h2 id="gvc-about-faq-title"><?php esc_html_e( 'About handcrafted crafts from Bangladesh', 'gv-craft' ); ?></h2>
+			</div>
+		</div>
+
+		<details>
+			<summary><?php esc_html_e( 'What handcrafted items can I find at Green Vision Craft?', 'gv-craft' ); ?><?php gvc_icon( 'expand_more', 'gvc-icon--sm' ); ?></summary>
+			<p><?php esc_html_e( 'Browse artisan-made mats and rugs, jute and fiber goods, woodcraft, ceramics and sustainable tableware. Product pages provide the available details about each piece.', 'gv-craft' ); ?></p>
+		</details>
+		<details>
+			<summary><?php esc_html_e( 'Where are Green Vision Craft products made?', 'gv-craft' ); ?><?php gvc_icon( 'expand_more', 'gvc-icon--sm' ); ?></summary>
+			<p><?php esc_html_e( 'Green Vision Craft works with artisan guilds and cooperative communities in Bangladesh. Check each product page for the maker and provenance details available for that item.', 'gv-craft' ); ?></p>
+		</details>
+		<details>
+			<summary><?php esc_html_e( 'What materials are used in the crafts?', 'gv-craft' ); ?><?php gvc_icon( 'expand_more', 'gvc-icon--sm' ); ?></summary>
+			<p><?php esc_html_e( 'Materials vary by product and include jute and other natural fibers, ceramics, and reclaimed wood. Refer to the individual product listing for its specific materials and care information.', 'gv-craft' ); ?></p>
+		</details>
+	</section>
 </div>

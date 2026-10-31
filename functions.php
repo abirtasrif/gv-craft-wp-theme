@@ -204,6 +204,7 @@ add_action( 'customize_preview_init', 'gvc_customize_preview_js' );
  * ---------------------------------------------------------------------- */
 require_once GVC_DIR . 'inc/helpers.php';
 require_once GVC_DIR . 'inc/template-tags.php';
+require_once GVC_DIR . 'inc/seo.php';
 require_once GVC_DIR . 'inc/class-gv-nav-walker.php';
 require_once GVC_DIR . 'inc/customizer.php';
 require_once GVC_DIR . 'inc/woocommerce.php';

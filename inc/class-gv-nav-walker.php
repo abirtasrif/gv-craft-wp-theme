@@ -80,17 +80,8 @@ function gvc_default_menu( $args = array() ) {
 			'url'   => add_query_arg( 'product_cat', 'sustainable-tableware', $shop_url ),
 		),
 		array(
-			'title' => __( 'Impact Ledger', 'gv-craft' ),
-			'url'   => home_url( '/impact-ledger/' ),
-			'icon'  => 'verified',
-		),
-		array(
 			'title' => __( 'About Us', 'gv-craft' ),
 			'url'   => home_url( '/about-us/' ),
-		),
-		array(
-			'title' => __( 'Terms & Conditions', 'gv-craft' ),
-			'url'   => home_url( '/terms-conditions/' ),
 		),
 	);
 
@@ -206,14 +197,18 @@ function gvc_filter_primary_menu_items( $items, $args ) {
 					$slug = '';
 
 					if ( is_object( $item ) ) {
-						if ( ! empty( $item->slug ) ) {
-							$slug = $item->slug;
-						} elseif ( ! empty( $item->post_name ) ) {
-							$slug = $item->post_name;
+						if ( ! empty( $item->object ) && 'page' === $item->object && ! empty( $item->object_id ) ) {
+							$page = get_post( (int) $item->object_id );
+							$slug = $page ? $page->post_name : '';
+						}
+
+						if ( ! $slug && ! empty( $item->url ) ) {
+							$path = wp_parse_url( $item->url, PHP_URL_PATH );
+							$slug = $path ? basename( untrailingslashit( $path ) ) : '';
 						}
 					}
 
-					return 'ceramics' !== $slug;
+					return ! in_array( sanitize_title( $slug ), array( 'impact-ledger', 'terms-conditions', 'privacy-policy' ), true );
 				}
 			)
 		);
