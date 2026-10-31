@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<div class="gvc-split gvc-split--6-6" style="align-items: center;">
+<div class="gvc-split gvc-split--6-6 gvc-about__intro" style="align-items: center;">
 	<div>
 		<div class="gvc-eyebrow gvc-eyebrow--upper">
 			<?php gvc_icon( 'eco', 'gvc-icon--sm' ); ?>
@@ -52,15 +52,15 @@ defined( 'ABSPATH' ) || exit;
 		</div>
 
 		<div class="gvc-grid gvc-about__stats" style="margin-top: 1.5rem; gap: 1rem;">
-			<div class="gvc-surface" style="padding: 1rem; text-align: center;">
+			<div class="gvc-surface gvc-about__stat" style="padding: 1rem; text-align: center;">
 				<strong style="display: block; font-family: var(--gvc-font-head); font-size: 22px; color: var(--gvc-forest);">4,200+</strong>
 				<span class="gvc-body-sm gvc-muted"><?php esc_html_e( 'Mangroves planted', 'gv-craft' ); ?></span>
 			</div>
-			<div class="gvc-surface" style="padding: 1rem; text-align: center;">
+			<div class="gvc-surface gvc-about__stat" style="padding: 1rem; text-align: center;">
 				<strong style="display: block; font-family: var(--gvc-font-head); font-size: 22px; color: var(--gvc-forest);">184</strong>
 				<span class="gvc-body-sm gvc-muted"><?php esc_html_e( 'Living-wage artisans', 'gv-craft' ); ?></span>
 			</div>
-			<div class="gvc-surface" style="padding: 1rem; text-align: center;">
+			<div class="gvc-surface gvc-about__stat" style="padding: 1rem; text-align: center;">
 				<strong style="display: block; font-family: var(--gvc-font-head); font-size: 22px; color: var(--gvc-forest);">12.5 t</strong>
 				<span class="gvc-body-sm gvc-muted"><?php esc_html_e( 'Plastic replaced', 'gv-craft' ); ?></span>
 			</div>
