@@ -476,6 +476,16 @@ p:last-child {
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.gvc-empty-state {
+	grid-column: 1 / -1;
+	margin: 0;
+	padding: 1.5rem;
+	border: 1px dashed var(--gvc-border);
+	border-radius: var(--gvc-radius-md);
+	color: var(--gvc-text-muted);
+	text-align: center;
+}
+
 @media (min-width: 640px) {
 	.gvc-grid--3,
 	.gvc-grid--4 {

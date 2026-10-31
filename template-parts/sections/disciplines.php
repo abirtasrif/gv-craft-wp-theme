@@ -18,7 +18,7 @@ $gvc_terms = get_terms(
 	)
 );
 
-if ( is_wp_error( $gvc_terms ) || empty( $gvc_terms ) ) {
+if ( is_wp_error( $gvc_terms ) ) {
 	return;
 }
 
@@ -49,7 +49,12 @@ $gvc_icons = array(
 		<div class="gvc-grid gvc-grid--4">
 
 			<?php
-			foreach ( $gvc_terms as $gvc_term ) :
+			if ( empty( $gvc_terms ) ) :
+				?>
+				<p class="gvc-empty-state"><?php esc_html_e( 'Craft disciplines will appear here soon.', 'gv-craft' ); ?></p>
+			<?php endif; ?>
+
+			<?php foreach ( $gvc_terms as $gvc_term ) :
 				$gvc_image_id = (int) get_term_meta( $gvc_term->term_id, 'thumbnail_id', true );
 
 				if ( ! $gvc_image_id ) {

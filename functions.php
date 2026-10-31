@@ -129,7 +129,7 @@ if ( ! function_exists( 'gvc_scripts' ) ) {
 		wp_enqueue_style( 'gv-craft-icons', $icons, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 		wp_enqueue_style( 'gv-craft-style', get_stylesheet_uri(), array( 'gv-craft-fonts' ), GVC_VERSION );
 
-		if ( gvc_is_woocommerce_page() ) {
+		if ( gvc_is_woocommerce_page() || ( is_front_page() && gvc_woocommerce_active() ) ) {
 			wp_enqueue_style( 'gv-craft-woocommerce', GVC_URI . 'assets/css/woocommerce.css', array( 'gv-craft-style' ), GVC_VERSION );
 		}
 

@@ -41,10 +41,6 @@ if ( empty( $gvc_ids ) ) {
 	);
 }
 
-if ( empty( $gvc_ids ) ) {
-	return;
-}
-
 $gvc_shop_url = wc_get_page_permalink( 'shop' );
 $gvc_chips    = get_terms(
 	array(
@@ -77,15 +73,21 @@ $gvc_chips    = get_terms(
 
 		<div class="gvc-products gvc-products--4" style="padding-top: 2.5rem;">
 			<?php
-			foreach ( $gvc_ids as $gvc_id ) :
-				$gvc_product = wc_get_product( $gvc_id );
+			if ( empty( $gvc_ids ) ) :
+				?>
+				<p class="gvc-empty-state"><?php esc_html_e( 'No artisan goods are available yet.', 'gv-craft' ); ?></p>
+				<?php
+			else :
+				foreach ( $gvc_ids as $gvc_id ) :
+					$gvc_product = wc_get_product( $gvc_id );
 
-				if ( ! $gvc_product ) {
-					continue;
-				}
+					if ( ! $gvc_product ) {
+						continue;
+					}
 
-				gvc_product_card( $gvc_product );
-			endforeach;
+					gvc_product_card( $gvc_product );
+				endforeach;
+			endif;
 			?>
 		</div>
 
